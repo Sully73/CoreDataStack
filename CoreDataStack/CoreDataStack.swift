@@ -36,6 +36,20 @@ public typealias CoreDataStackSetupCallback = SetupResult -> Void
 public typealias CoreDataStackSQLiteResetCallback = ResetResult -> Void
 public typealias CoreDataStackBatchMOCCallback = BatchContextResult -> Void
 
+public protocol ThreeTierStack {
+    var privateQueueContext: NSManagedObjectContext {get}
+    var mainQueueContext: NSManagedObjectContext {get}
+    func newBackgroundWorkerMOC() -> NSManagedObjectContext
+}
+
+public protocol SQLiteBackedStack {
+    func resetSQLiteStore(resetCallback: CoreDataStackSQLiteResetCallback)
+}
+
+public protocol BatchOperationStack {
+    func newBatchOperationContext(setupCallback: CoreDataStackBatchMOCCallback)
+}
+
 /**
 Three layer CoreData stack comprised of:
 
@@ -45,7 +59,7 @@ Three layer CoreData stack comprised of:
 
 Calling save() on any NSMangedObjectContext belonging to the stack will automatically bubble the changes all the way to the NSPersistentStore
 */
-public final class CoreDataStack {
+public final class CoreDataStack: ThreeTierStack {
     /**
     Primary persisting background managed object context. This is the top level context that possess an
     NSPersistentStoreCoordinator and saves changes to disk on a background queue.
@@ -88,6 +102,27 @@ public final class CoreDataStack {
         }
         return managedObjectContext
         }()
+
+    /**
+     Returns a new background worker managed object context as a child of the main queue context.
+
+     Calling save() on this managed object context will automatically trigger a save on its parent context via NSNotification observing.
+
+     - returns: NSManagedObjectContext The new worker context.
+     */
+    public func newBackgroundWorkerMOC() -> NSManagedObjectContext {
+        let moc = NSManagedObjectContext(concurrencyType: .PrivateQueueConcurrencyType)
+        moc.mergePolicy = NSMergePolicy(mergeType: .MergeByPropertyStoreTrumpMergePolicyType)
+        moc.parentContext = self.mainQueueContext
+        moc.name = "Background Worker Context"
+
+        NSNotificationCenter.defaultCenter().addObserver(self,
+            selector: "stackMemberContextDidSaveNotification:",
+            name: NSManagedObjectContextDidSaveNotification,
+            object: moc)
+
+        return moc
+    }
 
     // MARK: - Lifecycle
 
@@ -170,12 +205,12 @@ public final class CoreDataStack {
     }
 }
 
-public extension CoreDataStack {
+extension CoreDataStack: SQLiteBackedStack {
     /**
-    For SQLite based stacks, this function will remove the SQLite store from disk and creates a fresh NSPersistentStore.
-    
+     For SQLite based stacks, this function will remove the SQLite store from disk and creates a fresh NSPersistentStore.
+
      - parameter resetCallback: A callback with a Success or an ErrorType value with the error
-    */
+     */
     public func resetSQLiteStore(resetCallback: CoreDataStackSQLiteResetCallback) {
         switch storeType {
         case .InMemory:
@@ -205,34 +240,13 @@ public extension CoreDataStack {
     }
 }
 
-public extension CoreDataStack {
+extension CoreDataStack: BatchOperationStack {
     /**
-    Returns a new background worker managed object context as a child of the main queue context.
+     Creates a new background managed object context connected to
+     a discrete persistent store coordinator created with the same store used by the stack in construction.
 
-    Calling save() on this managed object context will automatically trigger a save on its parent context via NSNotification observing.
-
-    - returns: NSManagedObjectContext The new worker context.
-    */
-    public func newBackgroundWorkerMOC() -> NSManagedObjectContext {
-        let moc = NSManagedObjectContext(concurrencyType: .PrivateQueueConcurrencyType)
-        moc.mergePolicy = NSMergePolicy(mergeType: .MergeByPropertyStoreTrumpMergePolicyType)
-        moc.parentContext = self.mainQueueContext
-        moc.name = "Background Worker Context"
-
-        NSNotificationCenter.defaultCenter().addObserver(self,
-            selector: "stackMemberContextDidSaveNotification:",
-            name: NSManagedObjectContextDidSaveNotification,
-            object: moc)
-
-        return moc
-    }
-
-    /**
-    Creates a new background managed object context connected to
-    a discrete persistent store coordinator created with the same store used by the stack in construction.
-
-    - parameter setupCallback: A callback with either the new managed object context or an ErrorType value with the error
-    */
+     - parameter setupCallback: A callback with either the new managed object context or an ErrorType value with the error
+     */
     public func newBatchOperationContext(setupCallback: CoreDataStackBatchMOCCallback) {
         let moc = NSManagedObjectContext(concurrencyType: .PrivateQueueConcurrencyType)
         moc.mergePolicy = NSMergePolicy(mergeType: .MergeByPropertyObjectTrumpMergePolicyType)
