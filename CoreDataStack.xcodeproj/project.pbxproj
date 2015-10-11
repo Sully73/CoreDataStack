@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		34C9CF691BCB08660074F838 /* CoreDataStackOSX.h in Headers */ = {isa = PBXBuildFile; fileRef = 34C9CF681BCB08660074F838 /* CoreDataStackOSX.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34C9CF6E1BCB087C0074F838 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C9BC4A1AEA850600A6BD1B /* CoreDataStack.swift */; settings = {ASSET_TAGS = (); }; };
+		34C9CF6F1BCB08810074F838 /* NSManagedObjectContext+SaveHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C9BC4C1AEA850600A6BD1B /* NSManagedObjectContext+SaveHelpers.swift */; settings = {ASSET_TAGS = (); }; };
+		34C9CF701BCB08850074F838 /* NSPersistentStoreCoordinator+SQLiteHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C6F39B1AFD05E1004E3F1D /* NSPersistentStoreCoordinator+SQLiteHelpers.swift */; settings = {ASSET_TAGS = (); }; };
 		6979C2F11B8F58FA006E521B /* SaveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6979C2EF1B8F58BB006E521B /* SaveTests.swift */; settings = {ASSET_TAGS = (); }; };
 		69FC00381B7DBFB80002C1AC /* TempDirectoryTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 69FC00371B7DBFB80002C1AC /* TempDirectoryTestCase.m */; };
 		E41764DB1AEE854C00D89DBE /* Author.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41764DA1AEE854C00D89DBE /* Author.swift */; };
@@ -51,6 +55,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		34C9CF661BCB08660074F838 /* CoreDataStackOSX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CoreDataStackOSX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		34C9CF681BCB08660074F838 /* CoreDataStackOSX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreDataStackOSX.h; sourceTree = "<group>"; };
+		34C9CF6A1BCB08660074F838 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6979C2EF1B8F58BB006E521B /* SaveTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveTests.swift; sourceTree = "<group>"; };
 		69FC00361B7DBFB80002C1AC /* TempDirectoryTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TempDirectoryTestCase.h; sourceTree = "<group>"; };
 		69FC00371B7DBFB80002C1AC /* TempDirectoryTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TempDirectoryTestCase.m; sourceTree = "<group>"; };
@@ -82,6 +89,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		34C9CF621BCB08660074F838 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E4B99C631B740321005B7E1A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -108,6 +122,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		34C9CF671BCB08660074F838 /* CoreDataStackOSX */ = {
+			isa = PBXGroup;
+			children = (
+				34C9CF681BCB08660074F838 /* CoreDataStackOSX.h */,
+				34C9CF6A1BCB08660074F838 /* Info.plist */,
+			);
+			path = CoreDataStackOSX;
+			sourceTree = "<group>";
+		};
 		E41764DE1AEE856F00D89DBE /* Test Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -148,6 +171,7 @@
 				E4C9BC3C1AEA848600A6BD1B /* Tests */,
 				E4B99C671B740321005B7E1A /* Example */,
 				E41764DE1AEE856F00D89DBE /* Test Model */,
+				34C9CF671BCB08660074F838 /* CoreDataStackOSX */,
 				E4C9BC2E1AEA848600A6BD1B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -158,6 +182,7 @@
 				E4C9BC2D1AEA848600A6BD1B /* CoreDataStack.framework */,
 				E4C9BC381AEA848600A6BD1B /* CoreDataStackTests.xctest */,
 				E4B99C661B740321005B7E1A /* Example.app */,
+				34C9CF661BCB08660074F838 /* CoreDataStackOSX.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -219,6 +244,14 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		34C9CF631BCB08660074F838 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				34C9CF691BCB08660074F838 /* CoreDataStackOSX.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E4C9BC2A1AEA848600A6BD1B /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -230,6 +263,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		34C9CF651BCB08660074F838 /* CoreDataStackOSX */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 34C9CF6D1BCB08660074F838 /* Build configuration list for PBXNativeTarget "CoreDataStackOSX" */;
+			buildPhases = (
+				34C9CF611BCB08660074F838 /* Sources */,
+				34C9CF621BCB08660074F838 /* Frameworks */,
+				34C9CF631BCB08660074F838 /* Headers */,
+				34C9CF641BCB08660074F838 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CoreDataStackOSX;
+			productName = CoreDataStackOSX;
+			productReference = 34C9CF661BCB08660074F838 /* CoreDataStackOSX.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		E4B99C651B740321005B7E1A /* Example */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = E4B99C751B740321005B7E1A /* Build configuration list for PBXNativeTarget "Example" */;
@@ -294,6 +345,9 @@
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Big Nerd Ranch";
 				TargetAttributes = {
+					34C9CF651BCB08660074F838 = {
+						CreatedOnToolsVersion = 7.0.1;
+					};
 					E4B99C651B740321005B7E1A = {
 						CreatedOnToolsVersion = 7.0;
 					};
@@ -318,14 +372,22 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				E4B99C651B740321005B7E1A /* Example */,
 				E4C9BC2C1AEA848600A6BD1B /* CoreDataStack */,
 				E4C9BC371AEA848600A6BD1B /* CoreDataStackTests */,
-				E4B99C651B740321005B7E1A /* Example */,
+				34C9CF651BCB08660074F838 /* CoreDataStackOSX */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		34C9CF641BCB08660074F838 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E4B99C641B740321005B7E1A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -354,6 +416,16 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		34C9CF611BCB08660074F838 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				34C9CF6F1BCB08810074F838 /* NSManagedObjectContext+SaveHelpers.swift in Sources */,
+				34C9CF701BCB08850074F838 /* NSPersistentStoreCoordinator+SQLiteHelpers.swift in Sources */,
+				34C9CF6E1BCB087C0074F838 /* CoreDataStack.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E4B99C621B740321005B7E1A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -427,6 +499,47 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		34C9CF6B1BCB08660074F838 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = CoreDataStackOSX/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = com.solbits.CoreDataStackOSX;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		34C9CF6C1BCB08660074F838 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = CoreDataStackOSX/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = com.solbits.CoreDataStackOSX;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 		E4B99C761B740321005B7E1A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -615,6 +728,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		34C9CF6D1BCB08660074F838 /* Build configuration list for PBXNativeTarget "CoreDataStackOSX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				34C9CF6B1BCB08660074F838 /* Debug */,
+				34C9CF6C1BCB08660074F838 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		E4B99C751B740321005B7E1A /* Build configuration list for PBXNativeTarget "Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
