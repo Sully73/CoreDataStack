@@ -106,7 +106,7 @@ public final class CoreDataStack {
         withStoreURL desiredStoreURL: NSURL? = nil,
         callback: CoreDataStackSetupCallback) {
             let model = bundle.managedObjectModel(modelName: modelName)
-            let storeFileURL = desiredStoreURL ?? NSURL(string: "\(modelName).sqlite", relativeToURL: documentsDirectory)!
+            let storeFileURL = generateStoreURL(desiredStoreURL, modelName: modelName)
             NSPersistentStoreCoordinator.setupSQLiteBackedCoordinator(model, storeFileURL: storeFileURL) { coordinatorResult in
                 switch coordinatorResult {
                 case .Success(let coordinator):
@@ -117,6 +117,23 @@ public final class CoreDataStack {
                 }
             }
     }
+    
+    
+    private static func generateStoreURL(requestedURL: NSURL?, modelName: String) -> NSURL {
+        
+        #if os(iOS)
+            return requestedURL ?? NSURL(string: "\(modelName).sqlite", relativeToURL: documentsDirectory)!
+            #elseif os(OSX)
+            do {
+                let applicationDirectory = try NSFileManager.defaultManager().applicationSupportDirectory()
+                return requestedURL ?? applicationDirectory.URLByAppendingPathComponent("\(modelName).sqlite")
+            }
+            catch {
+                fatalError("Could not create Store for URL: \(requestedURL) error: \(error)")
+            }
+        #endif
+    }
+
 
     /**
     Creates an in-memory Core Data stack for a given model in the supplied NSBundle.
