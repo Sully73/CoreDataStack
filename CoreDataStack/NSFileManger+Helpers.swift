@@ -31,7 +31,10 @@ extension NSFileManager {
     }
     
     func applicationSupportDirectory() throws -> NSURL {
-        let executableName = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleExecutable")
+        
+        let defaultModelName = NSUserDefaults.standardUserDefaults().objectForKey("modelName")
+        let executableName = defaultModelName ?? NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleExecutable")
+
         guard let exName = executableName as? String else {
             throw FileManagerError.ExcutableNameNotFound
         }
