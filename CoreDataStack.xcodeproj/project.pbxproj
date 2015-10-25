@@ -7,13 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		34178D9B1BCB30C200339CEA /* NSFileManger+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34178D9A1BCB30C200339CEA /* NSFileManger+Helpers.swift */; settings = {ASSET_TAGS = (); }; };
-		34178D9C1BCB30C200339CEA /* NSFileManger+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34178D9A1BCB30C200339CEA /* NSFileManger+Helpers.swift */; settings = {ASSET_TAGS = (); }; };
+		34178D9B1BCB30C200339CEA /* NSFileManger+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34178D9A1BCB30C200339CEA /* NSFileManger+Helpers.swift */; };
+		34178D9C1BCB30C200339CEA /* NSFileManger+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34178D9A1BCB30C200339CEA /* NSFileManger+Helpers.swift */; };
 		34C9CF691BCB08660074F838 /* CoreDataStackOSX.h in Headers */ = {isa = PBXBuildFile; fileRef = 34C9CF681BCB08660074F838 /* CoreDataStackOSX.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		34C9CF6E1BCB087C0074F838 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C9BC4A1AEA850600A6BD1B /* CoreDataStack.swift */; settings = {ASSET_TAGS = (); }; };
-		34C9CF6F1BCB08810074F838 /* NSManagedObjectContext+SaveHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C9BC4C1AEA850600A6BD1B /* NSManagedObjectContext+SaveHelpers.swift */; settings = {ASSET_TAGS = (); }; };
-		34C9CF701BCB08850074F838 /* NSPersistentStoreCoordinator+SQLiteHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C6F39B1AFD05E1004E3F1D /* NSPersistentStoreCoordinator+SQLiteHelpers.swift */; settings = {ASSET_TAGS = (); }; };
-		6979C2F11B8F58FA006E521B /* SaveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6979C2EF1B8F58BB006E521B /* SaveTests.swift */; settings = {ASSET_TAGS = (); }; };
+		34C9CF6E1BCB087C0074F838 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C9BC4A1AEA850600A6BD1B /* CoreDataStack.swift */; };
+		34C9CF6F1BCB08810074F838 /* NSManagedObjectContext+SaveHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C9BC4C1AEA850600A6BD1B /* NSManagedObjectContext+SaveHelpers.swift */; };
+		34C9CF701BCB08850074F838 /* NSPersistentStoreCoordinator+SQLiteHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C6F39B1AFD05E1004E3F1D /* NSPersistentStoreCoordinator+SQLiteHelpers.swift */; };
+		34F463F61BDD8AED00414B14 /* NSManagedObject+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F463F51BDD8AED00414B14 /* NSManagedObject+Extensions.swift */; };
+		6979C2F11B8F58FA006E521B /* SaveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6979C2EF1B8F58BB006E521B /* SaveTests.swift */; };
 		69FC00381B7DBFB80002C1AC /* TempDirectoryTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 69FC00371B7DBFB80002C1AC /* TempDirectoryTestCase.m */; };
 		E41764DB1AEE854C00D89DBE /* Author.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41764DA1AEE854C00D89DBE /* Author.swift */; };
 		E41764DD1AEE854D00D89DBE /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41764DC1AEE854D00D89DBE /* Book.swift */; };
@@ -61,6 +62,7 @@
 		34C9CF661BCB08660074F838 /* CoreDataStackOSX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CoreDataStackOSX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		34C9CF681BCB08660074F838 /* CoreDataStackOSX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreDataStackOSX.h; sourceTree = "<group>"; };
 		34C9CF6A1BCB08660074F838 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		34F463F51BDD8AED00414B14 /* NSManagedObject+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+Extensions.swift"; sourceTree = "<group>"; };
 		6979C2EF1B8F58BB006E521B /* SaveTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveTests.swift; sourceTree = "<group>"; };
 		69FC00361B7DBFB80002C1AC /* TempDirectoryTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TempDirectoryTestCase.h; sourceTree = "<group>"; };
 		69FC00371B7DBFB80002C1AC /* TempDirectoryTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TempDirectoryTestCase.m; sourceTree = "<group>"; };
@@ -240,6 +242,7 @@
 			children = (
 				34178D9A1BCB30C200339CEA /* NSFileManger+Helpers.swift */,
 				E4C9BC4C1AEA850600A6BD1B /* NSManagedObjectContext+SaveHelpers.swift */,
+				34F463F51BDD8AED00414B14 /* NSManagedObject+Extensions.swift */,
 				E4C6F39B1AFD05E1004E3F1D /* NSPersistentStoreCoordinator+SQLiteHelpers.swift */,
 			);
 			name = Extensions;
@@ -439,6 +442,7 @@
 				E4B99C6B1B740321005B7E1A /* ViewController.swift in Sources */,
 				E4598B3B1B7CF80800F7DAD9 /* Author.swift in Sources */,
 				E4598B3C1B7CF80800F7DAD9 /* Book.swift in Sources */,
+				34F463F61BDD8AED00414B14 /* NSManagedObject+Extensions.swift in Sources */,
 				E4B99C691B740321005B7E1A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
