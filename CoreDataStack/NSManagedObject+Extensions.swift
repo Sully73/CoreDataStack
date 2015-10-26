@@ -9,18 +9,18 @@
 import Foundation
 import CoreData
 
-extension NSManagedObject {
+public extension NSManagedObject {
     
-    class var entityName : String {
+    public class var entityName : String {
         let components = NSStringFromClass(self).componentsSeparatedByString(".")
         return components[1]
     }
     
-    class func fetchRequest() -> NSFetchRequest {
+    public class func fetchRequest() -> NSFetchRequest {
         return NSFetchRequest(entityName:self.entityName)
     }
     
-    class func fetchRequestWithKey(key: String, ascending: Bool = true) -> NSFetchRequest {
+    public class func fetchRequestWithKey(key: String, ascending: Bool = true) -> NSFetchRequest {
         let request = fetchRequest()
         request.sortDescriptors = [NSSortDescriptor(key: key, ascending: ascending)]
         return request

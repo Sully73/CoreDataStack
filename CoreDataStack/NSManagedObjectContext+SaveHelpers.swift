@@ -78,12 +78,12 @@ public extension NSManagedObjectContext {
         }
     }
     
-    func insert<T : NSManagedObject>(entity: T.Type) -> T {
+    public func insert<T : NSManagedObject>(entity: T.Type) -> T {
         let entityName = entity.entityName
         return NSEntityDescription.insertNewObjectForEntityForName(entityName, inManagedObjectContext:self) as! T
     }
     
-    func fetchAll<T : NSManagedObject>(entity: T.Type, key:String? = nil, ascending:Bool = true) -> [T] {
+    public func fetchAll<T : NSManagedObject>(entity: T.Type, key:String? = nil, ascending:Bool = true) -> [T] {
         let fetchRequest : NSFetchRequest = {
             if let key = key {
                 return entity.fetchRequestWithKey(key, ascending: ascending)
